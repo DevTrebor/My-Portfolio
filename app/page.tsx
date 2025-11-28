@@ -30,7 +30,7 @@ export default function Home() {
       <section className="flex flex-col gap-6 md:flex-row md:items-center">
         <div className="flex-1 space-y-4">
           <p className="text-sm uppercase tracking-[0.2em] text-cyan-400">
-            Frontend Developer
+            Full Stack Engineer
           </p>
           <h1 className="text-4xl md:text-5xl font-bold tracking-tight">
             Hi, I&apos;m <span className="text-cyan-400">Jhon Robert</span>.
@@ -41,19 +41,27 @@ export default function Home() {
             interfaces.
           </p>
           <div className="flex gap-3">
-            <a
-              href="#projects"
-              className="px-4 py-2 rounded-md bg-cyan-500 text-slate-950 text-sm font-medium hover:bg-cyan-400 transition"
-            >
-              View projects
-            </a>
-            <a
-              href="#contact"
-              className="px-4 py-2 rounded-md border border-slate-700 text-sm hover:border-cyan-400 hover:text-cyan-400 transition"
-            >
-              Contact me
-            </a>
-          </div>
+  <a
+    href="#projects"
+    className="px-4 py-2 rounded-md bg-cyan-500 text-slate-950 text-sm font-medium hover:bg-cyan-400 transition"
+  >
+    View projects
+  </a>
+  <a
+    href="#contact"
+    className="px-4 py-2 rounded-md border border-slate-700 text-sm hover:border-cyan-400 hover:text-cyan-400 transition"
+  >
+    Contact me
+  </a>
+  <a
+  href="/CV.pdf"
+  download
+  className="px-4 py-2 rounded-md bg-slate-800 border border-slate-600 text-sm hover:border-cyan-400 hover:text-cyan-400 transition"
+>
+  Download CV
+</a>
+
+</div>
         </div>
 
         <div className="flex-1 mt-8 md:mt-0 flex justify-center">
@@ -157,11 +165,11 @@ export default function Home() {
           <li>
             <span className="font-medium text-slate-200">LinkedIn:</span>{" "}
             <a
-              href="https://www.linkedin.com/in/your-username"
+              href="https://www.linkedin.com/in/jrobertlopez"
               className="text-cyan-400 hover:underline"
               target="_blank"
             >
-              linkedin.com/in/your-username
+              linkedin.com/in/jrobertlopez
             </a>
           </li>
         </ul>

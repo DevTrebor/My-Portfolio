@@ -27,16 +27,18 @@ const TargetCursor: React.FC<TargetCursorProps> = ({
   const targetCornerPositionsRef = useRef<{ x: number; y: number }[] | null>(null);
   const tickerFnRef = useRef<(() => void) | null>(null);
   const activeStrengthRef = useRef({ current: 0 });
+  
+const isMobile = useMemo(() => {
+  if (typeof window === 'undefined') return false; // SSR fallback
+  const hasTouchScreen = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+  const isSmallScreen = window.innerWidth <= 768;
+  const win = window as Window & { opera?: string };
+  const userAgent = navigator.userAgent || navigator.vendor || win.opera || '';
+  const mobileRegex = /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i;
+  const isMobileUserAgent = mobileRegex.test(userAgent.toLowerCase());
+  return (hasTouchScreen && isSmallScreen) || isMobileUserAgent;
+}, []);
 
-  const isMobile = useMemo(() => {
-    const hasTouchScreen = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-    const isSmallScreen = window.innerWidth <= 768;
-    const winWithOpera = window as unknown as { opera?: string | undefined };
-    const userAgent = (navigator.userAgent || navigator.vendor || winWithOpera.opera || '').toString();
-    const mobileRegex = /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i;
-    const isMobileUserAgent = mobileRegex.test(userAgent.toLowerCase());
-    return (hasTouchScreen && isSmallScreen) || isMobileUserAgent;
-  }, []);
 
   const constants = useMemo(() => ({ borderWidth: 3, cornerSize: 12 }), []);
 

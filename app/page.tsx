@@ -1,4 +1,5 @@
 import Layout from "@/components/Layout";
+import TrueFocus from '@/components/animation/TrueFocus';
 
 type Project = {
   title: string;
@@ -33,7 +34,18 @@ export default function Home() {
             Full Stack Engineer
           </p>
           <h1 className="text-4xl md:text-5xl font-bold tracking-tight">
-            Hi, I&apos;m <span className="text-cyan-400">Jhon Robert</span>.
+  Hi, I&apos;m{' '}
+  <span className="inline-block align-baseline text-cyan-400">
+    <TrueFocus
+      sentence="Jhon Robert"
+      manualMode={false}
+      blurAmount={5}
+      borderColor="violet"
+      animationDuration={2}
+      pauseBetweenAnimations={1}
+    />
+  </span>
+  
           </h1>
           <p className="text-slate-300 max-w-xl">
             I build fast, responsive web experiences using Next.js, React, and

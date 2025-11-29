@@ -1,5 +1,6 @@
 import Layout from "@/components/Layout";
 import TrueFocus from '@/components/animation/TrueFocus';
+import TargetCursor from '@/components/animation/TargetCursor';
 
 type Project = {
   title: string;
@@ -26,7 +27,15 @@ const projects: Project[] = [
 
 export default function Home() {
   return (
+
+ 
+ 
     <Layout>
+        <TargetCursor 
+        spinDuration={2}
+        hideDefaultCursor={true}
+        parallaxOn={true}
+      />
       {/* Hero */}
       <section className="flex flex-col gap-6 md:flex-row md:items-center">
         <div className="flex-1 space-y-4">
@@ -55,20 +64,21 @@ export default function Home() {
           <div className="flex gap-3">
   <a
     href="#projects"
-    className="px-4 py-2 rounded-md bg-cyan-500 text-slate-950 text-sm font-medium hover:bg-cyan-400 transition"
+    className="px-4 py-2 rounded-md bg-cyan-500 text-slate-950 text-sm font-medium hover:bg-cyan-400 transition cursor-target"
   >
     View projects
   </a>
   <a
     href="#contact"
-    className="px-4 py-2 rounded-md border border-slate-700 text-sm hover:border-cyan-400 hover:text-cyan-400 transition"
+    className="px-4 py-2 rounded-md border border-slate-700 text-sm hover:border-cyan-400 hover:text-cyan-400 transition cursor-target"
   >
     Contact me
+
   </a>
   <a
   href="/CV.pdf"
   download
-  className="px-4 py-2 rounded-md bg-slate-800 border border-slate-600 text-sm hover:border-cyan-400 hover:text-cyan-400 transition"
+  className="px-4 py-2 rounded-md bg-slate-800 border border-slate-600 text-sm hover:border-cyan-400 hover:text-cyan-400 transition cursor-target"
 >
   Download CV
 </a>
@@ -107,13 +117,13 @@ export default function Home() {
           {projects.map((project) => (
             <article
               key={project.title}
-              className="border border-slate-800 rounded-lg p-4 bg-slate-900/40 hover:border-cyan-500/60 transition"
+              className="border border-slate-800 rounded-lg p-4 bg-slate-900/40 hover:border-cyan-500/60 transition cursor-target"
             >
               <h3 className="text-lg font-semibold mb-1">{project.title}</h3>
               <p className="text-sm text-slate-300 mb-3">
                 {project.description}
               </p>
-              <div className="flex flex-wrap gap-2 mb-3">
+              <div className="flex flex-wrap gap-2 mb-3 ">
                 {project.tech.map((t) => (
                   <span
                     key={t}
@@ -159,7 +169,7 @@ export default function Home() {
             <span className="font-medium text-slate-200">Email:</span>{" "}
             <a
               href="mailto:jhonlopez0724@gmail.com"
-              className="text-cyan-400 hover:underline"
+              className="text-cyan-400 hover:underline cursor-target"
             >
               jhonlopez0724@gmail.com
             </a>
@@ -168,7 +178,7 @@ export default function Home() {
             <span className="font-medium text-slate-200">GitHub:</span>{" "}
             <a
               href="https://github.com/DevTrebor"
-              className="text-cyan-400 hover:underline"
+              className="text-cyan-400 hover:underline cursor-target"
               target="_blank"
             >
               github.com/DevTrebor
@@ -178,7 +188,7 @@ export default function Home() {
             <span className="font-medium text-slate-200">LinkedIn:</span>{" "}
             <a
               href="https://www.linkedin.com/in/jrobertlopez"
-              className="text-cyan-400 hover:underline"
+              className="text-cyan-400 hover:underline cursor-target"
               target="_blank"
             >
               linkedin.com/in/jrobertlopez

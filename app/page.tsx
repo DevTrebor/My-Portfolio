@@ -40,7 +40,7 @@ export default function Home() {
       sentence="Jhon Robert"
       manualMode={false}
       blurAmount={5}
-      borderColor="violet"
+      borderColor="#B589D6"
       animationDuration={2}
       pauseBetweenAnimations={1}
     />

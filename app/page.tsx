@@ -1,4 +1,6 @@
 import Layout from "@/components/Layout";
+import Image from "next/image";
+import profilePic from "@/assets/profile.jpg";
 import TrueFocus from '@/components/animation/TrueFocus';
 import TargetCursor from '@/components/animation/TargetCursor';
 
@@ -38,9 +40,9 @@ export default function Home() {
       />
       {/* Hero */}
       <section className="flex flex-col gap-6 md:flex-row md:items-center">
-        <div className="flex-1 space-y-4">
+        <div className="flex-1 space-y-5">
           <p className="text-sm uppercase tracking-[0.2em] text-cyan-400">
-            Full Stack Engineer
+            Front End Developer
           </p>
           <h1 className="text-4xl md:text-5xl font-bold tracking-tight">
   Hi, I&apos;m{' '}
@@ -87,12 +89,17 @@ export default function Home() {
         </div>
 
         <div className="flex-1 mt-8 md:mt-0 flex justify-center">
-          <div className="h-40 w-40 rounded-full bg-gradient-to-tr from-cyan-500 to-purple-500 p-[2px]">
-            <div className="h-full w-full rounded-full bg-slate-950 flex items-center justify-center text-4xl">
-              JR
-            </div>
-          </div>
-        </div>
+  <div className="h-40 w-40 rounded-full bg-gradient-to-tr from-cyan-500 to-purple-500 p-[2px]">
+    <div className="h-full w-full rounded-full overflow-hidden bg-slate-950">
+      <Image
+        src={profilePic}
+        alt="Profile picture"
+        className="object-cover h-full w-full"
+        priority
+      />
+    </div>
+  </div>
+</div>
       </section>
 
       {/* About */}

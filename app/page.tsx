@@ -23,6 +23,7 @@ type Project = {
   tech: string[];
   link?: string;
   github?: string;
+  image?: string;
 };
 
 const projects: Project[] = [
@@ -31,14 +32,17 @@ const projects: Project[] = [
     description: "Responsive portfolio built with Next.js and Tailwind CSS.",
     tech: ["Next.js", "Tailwind CSS", "TypeScript"],
     github: "https://github.com/your-username/portfolio",
+    image: "/projects/portfolio.png",
   },
   {
     title: "Project 2",
     description: "Short description of what this project does.",
     tech: ["React", "Node.js"],
     link: "https://example.com",
+    image: "/projects/project2.png",
   },
 ];
+
 
 const techLogos = [
   { node: <SiReact />, title: "React", href: "https://react.dev" },
@@ -138,100 +142,149 @@ export default function Home() {
 </div>
       </section>
 
-      {/* About */}
-      <section id="about" className="space-y-4">
-        <h2 className="text-2xl font-semibold">About</h2>
-        <p className="text-slate-300">
-          I&apos;m a skilled Full Stack Developer with experience designing, developing, and
-deploying scalable web applications. I work confidently across front-end and back-
-end technologies, building efficient APIs, intuitive user interfaces, and robust system
-architectures. I enjoy solving complex problems, writing clean and maintainable
-code, and collaborating to deliver high-quality digital solutions.
-        </p>
-        <p className="text-slate-300">
-          My main stack <br/> <span className="text-slate-300">
-  Front-end: <span className="text-cyan-300">Next.js</span>,{" "}
-  <span className="text-cyan-300">React</span>,{" "}
-  <span className="text-cyan-300">Tailwind CSS</span>
-  <br />
-  Back-end: <span className="text-cyan-300">Python</span>,{" "}
-  <span className="text-cyan-300">Django</span>
-  <br />
-  Database: <span className="text-cyan-300">PostgreSQL</span>
-  <br />
-  Version Control:{" "}
-  <span className="text-cyan-300">Git &amp; GitHub</span>
-</span>
-        </p>
+     {/* About */}
+<section id="about" className="space-y-6 py-10">
+  <h2 className="text-2xl font-semibold tracking-tight">About</h2>
 
-        <div style={{ height: '200px', position: 'relative', overflow: 'hidden'}}>
-      {/* Basic horizontal loop */}
-      <LogoLoop
-        logos={techLogos}
-        speed={120}
-        direction="left"
-        logoHeight={48}
-        gap={40}
-        hoverSpeed={0}
-        scaleOnHover
-        fadeOut
-        fadeOutColor="#0f0f0f62"
-        ariaLabel="Technology partners"
-      />
-      
+  <p className="text-slate-300 leading-relaxed max-w-2xl">
+    I&apos;m a Full Stack Developer specializing in building clean, functional, and scalable
+    web applications. I enjoy working across both front-end and back-end technologies,
+    crafting intuitive interfaces, efficient APIs, and reliable system architectures.
+  </p>
+
+  {/* Minimal Tech Stack Card */}
+  <div className="border border-slate-800 bg-slate-900/40 rounded-lg p-6 max-w-2xl space-y-4">
+    <h3 className="text-lg font-medium text-slate-200">Tech Stack</h3>
+
+    <div className="grid grid-cols-1 sm:grid-cols-1 gap-y-3 text-sm text-slate-300">
+      <p>
+        <span className="font-medium text-slate-200">Front-end:</span>  
+        <span className="text-cyan-300"> Next.js</span>, 
+        <span className="text-cyan-300"> React</span>, 
+        <span className="text-cyan-300"> TypeScript</span>,
+        <span className="text-cyan-300"> Tailwind CSS</span>
+      </p>
+
+      <p>
+        <span className="font-medium text-slate-200">Back-end:</span>  
+        <span className="text-cyan-300"> Python</span>, 
+        <span className="text-cyan-300"> Django</span>
+      </p>
+
+      <p>
+        <span className="font-medium text-slate-200">Database:</span>  
+        <span className="text-cyan-300"> PostgreSQL</span>
+      </p>
+
+      <p>
+        <span className="font-medium text-slate-200">Version Control:</span>  
+        <span className="text-cyan-300"> Git &amp; GitHub</span>
+      </p>
     </div>
-  
+  </div>
 
-
-      </section>
+  {/* Clean logo strip */}
+  <div className="pt-4">
+    <LogoLoop
+      logos={techLogos}
+      speed={90}
+      direction="left"
+      logoHeight={40}
+      gap={32}
+      hoverSpeed={0}
+      scaleOnHover={false}
+      fadeOut
+      fadeOutColor="#0f0f0f9a"
+      className="opacity-80 cursor-target"
+    />
+  </div>
+</section>
 
       {/* Projects */}
-      <section id="projects" className="space-y-6">
-        <h2 className="text-2xl font-semibold">Projects</h2>
-        <div className="grid md:grid-cols-2 gap-6">
-          {projects.map((project) => (
-            <article
-              key={project.title}
-              className="border border-slate-800 rounded-lg p-4 bg-slate-900/40 hover:border-cyan-500/60 transition cursor-target"
-            >
-              <h3 className="text-lg font-semibold mb-1">{project.title}</h3>
-              <p className="text-sm text-slate-300 mb-3">
-                {project.description}
-              </p>
-              <div className="flex flex-wrap gap-2 mb-3 ">
-                {project.tech.map((t) => (
-                  <span
-                    key={t}
-                    className="text-[11px] px-2 py-1 rounded-full bg-slate-800 text-slate-200"
-                  >
-                    {t}
-                  </span>
-                ))}
-              </div>
-              <div className="flex gap-3 text-xs">
-                {project.link && (
-                  <a
-                    href={project.link}
-                    className="text-cyan-400 hover:underline"
-                    target="_blank"
-                  >
-                    Live
-                  </a>
-                )}
-                {project.github && (
-                  <a
-                    href={project.github}
-                    className="text-cyan-400 hover:underline"
-                    target="_blank"
-                  >
-                    Code
-                  </a>
-                )}
-              </div>
-            </article>
-          ))}
+<section id="projects" className="space-y-8 py-10">
+  <h2 className="text-2xl font-semibold tracking-tight">Projects</h2>
+
+  <div className="grid md:grid-cols-2 gap-8">
+    {projects.map((project) => (
+      <article
+        key={project.title}
+        className="
+          group 
+          rounded-xl 
+          overflow-hidden 
+          border border-slate-800 
+          bg-slate-900/40 
+          hover:border-cyan-500/60 
+          transition-all
+          duration-300 
+          hover:-translate-y-1 
+          hover:shadow-lg 
+          hover:shadow-cyan-500/10 
+          cursor-target
+        "
+      >
+        {/* Project Image */}
+        {project.image && (
+          <div className="w-full h-40 overflow-hidden bg-slate-950">
+            <Image
+              src={project.image}
+              alt={project.title}
+              width={600}
+              height={300}
+              className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+            />
+          </div>
+        )}
+
+        {/* Text Content */}
+        <div className="p-5 space-y-3">
+          <h3 className="text-lg font-semibold text-slate-100">
+            {project.title}
+          </h3>
+
+          <p className="text-sm text-slate-300 leading-relaxed">
+            {project.description}
+          </p>
+
+          {/* Tech badges */}
+          <div className="flex flex-wrap gap-2">
+            {project.tech.map((t) => (
+              <span
+                key={t}
+                className="text-[11px] px-2 py-1 rounded-full bg-slate-800 text-slate-200"
+              >
+                {t}
+              </span>
+            ))}
+          </div>
+
+          {/* Links */}
+          <div className="flex gap-4 text-sm pt-2">
+            {project.link && (
+              <a
+                href={project.link}
+                target="_blank"
+                className="text-cyan-400 hover:underline"
+              >
+                Live →
+              </a>
+            )}
+            {project.github && (
+              <a
+                href={project.github}
+                target="_blank"
+                className="text-cyan-400 hover:underline"
+              >
+                Code →
+              </a>
+            )}
+          </div>
         </div>
-      </section>
+      </article>
+    ))}
+  </div>
+</section>
+
 
       {/* Contact */}
       <section id="contact" className="space-y-4">

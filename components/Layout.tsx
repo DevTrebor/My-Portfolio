@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Head from "next/head";
 import Image from "next/image";
-import logo from "@/assets/logo.png";
+import logo from "@/assets/logo1.png";
 
 type Props = {
   children: React.ReactNode;

@@ -3,6 +3,19 @@ import Image from "next/image";
 import profilePic from "@/assets/profile.jpg";
 import TrueFocus from '@/components/animation/TrueFocus';
 import TargetCursor from '@/components/animation/TargetCursor';
+// import GradientText from '@/components/animation/GradientText';
+import LogoLoop from '@/components/LogoLoop';
+import { 
+  SiReact, 
+  SiNextdotjs, 
+  SiTypescript, 
+  SiTailwindcss, 
+  SiPython, 
+  SiDjango, 
+  SiPostgresql, 
+  SiGit, 
+  SiGithub 
+} from "react-icons/si";
 
 type Project = {
   title: string;
@@ -27,6 +40,28 @@ const projects: Project[] = [
   },
 ];
 
+const techLogos = [
+  { node: <SiReact />, title: "React", href: "https://react.dev" },
+  { node: <SiNextdotjs />, title: "Next.js", href: "https://nextjs.org" },
+  { node: <SiTypescript />, title: "TypeScript", href: "https://www.typescriptlang.org" },
+  { node: <SiTailwindcss />, title: "Tailwind CSS", href: "https://tailwindcss.com" },
+  // Back-end
+  { node: <SiPython />, title: "Python", href: "https://www.python.org" },
+  { node: <SiDjango />, title: "Django", href: "https://www.djangoproject.com" },
+  // Database
+  { node: <SiPostgresql />, title: "PostgreSQL", href: "https://www.postgresql.org" },
+  // Version Control
+  { node: <SiGit />, title: "Git", href: "https://git-scm.com" },
+  { node: <SiGithub />, title: "GitHub", href: "https://github.com" },
+];
+
+// Alternative with image sources
+// const imageLogos = [
+//   { src: "/logos/company1.png", alt: "Company 1", href: "https://company1.com" },
+//   { src: "/logos/company2.png", alt: "Company 2", href: "https://company2.com" },
+//   { src: "/logos/company3.png", alt: "Company 3", href: "https://company3.com" },
+// ];
+
 export default function Home() {
   return (
 
@@ -42,8 +77,11 @@ export default function Home() {
       <section className="flex flex-col gap-6 md:flex-row md:items-center">
         <div className="flex-1 space-y-5">
           <p className="text-sm uppercase tracking-[0.2em] text-cyan-400">
-            Front End Developer
+            Full Stack Developer
           </p>
+
+
+
           <h1 className="text-4xl md:text-5xl font-bold tracking-tight">
   Hi, I&apos;m{' '}
   <span className="inline-block align-baseline text-cyan-400">
@@ -59,9 +97,7 @@ export default function Home() {
   
           </h1>
           <p className="text-slate-300 max-w-xl">
-            I build fast, responsive web experiences using Next.js, React, and
-            Tailwind CSS. I enjoy turning ideas into clean, production-ready
-            interfaces.
+            Turning ideas into clean, functional applications.
           </p>
           <div className="flex gap-3">
   <a
@@ -106,15 +142,47 @@ export default function Home() {
       <section id="about" className="space-y-4">
         <h2 className="text-2xl font-semibold">About</h2>
         <p className="text-slate-300">
-          I&apos;m a developer based in the Philippines, focused on building
-          clean UI and smooth UX. I like working with modern JavaScript
-          frameworks, design systems, and reusable components.
+          I&apos;m a skilled Full Stack Developer with experience designing, developing, and
+deploying scalable web applications. I work confidently across front-end and back-
+end technologies, building efficient APIs, intuitive user interfaces, and robust system
+architectures. I enjoy solving complex problems, writing clean and maintainable
+code, and collaborating to deliver high-quality digital solutions.
         </p>
         <p className="text-slate-300">
-          My main stack includes <span className="text-cyan-300">Next.js</span>,{" "}
-          <span className="text-cyan-300">React</span>, and{" "}
-          <span className="text-cyan-300">Tailwind CSS</span>.
+          My main stack <br/> <span className="text-slate-300">
+  Front-end: <span className="text-cyan-300">Next.js</span>,{" "}
+  <span className="text-cyan-300">React</span>,{" "}
+  <span className="text-cyan-300">Tailwind CSS</span>
+  <br />
+  Back-end: <span className="text-cyan-300">Python</span>,{" "}
+  <span className="text-cyan-300">Django</span>
+  <br />
+  Database: <span className="text-cyan-300">PostgreSQL</span>
+  <br />
+  Version Control:{" "}
+  <span className="text-cyan-300">Git &amp; GitHub</span>
+</span>
         </p>
+
+        <div style={{ height: '200px', position: 'relative', overflow: 'hidden'}}>
+      {/* Basic horizontal loop */}
+      <LogoLoop
+        logos={techLogos}
+        speed={120}
+        direction="left"
+        logoHeight={48}
+        gap={40}
+        hoverSpeed={0}
+        scaleOnHover
+        fadeOut
+        fadeOutColor="#0f0f0f62"
+        ariaLabel="Technology partners"
+      />
+      
+    </div>
+  
+
+
       </section>
 
       {/* Projects */}

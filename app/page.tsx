@@ -89,11 +89,20 @@ export default function Home() {
           <p className="text-slate-300 max-w-xl">Turning ideas into clean, functional applications.</p>
           <div className="flex gap-3">
             
-<div className="flex gap-3">
-  <FancyButton href="#projects" className="cursor-target">View Projects</FancyButton>
-  <FancyButton href="#contact" className="cursor-target">Contact Me</FancyButton>
-  <FancyButton href="/CV.pdf" download className="cursor-target">Download CV</FancyButton>
+<div className="flex flex-wrap gap-3 justify-center md:justify-start">
+  <FancyButton href="#projects" className="cursor-target">
+    View Projects
+  </FancyButton>
+
+  <FancyButton href="#contact" className="cursor-target">
+    Contact Me
+  </FancyButton>
+
+  <FancyButton href="/CV.pdf" download className="cursor-target">
+    Download CV
+  </FancyButton>
 </div>
+
 
 </div>
         </div>

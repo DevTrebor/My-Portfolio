@@ -5,9 +5,11 @@ import portfolioImg from "@/assets/portfolio.png";
 import htImg from "@/assets/HT.png";
 import TrueFocus from '@/components/animation/TrueFocus';
 import TargetCursor from '@/components/animation/TargetCursor';
-import emailjs from "emailjs-com";
 import ContactForm from "@/components/ContactForm";
+import FancyButton from "@/components/animation/FancyButton";
+import AnimatedBlurText from "@/components/AnimatedBlurText";
 import { FaEnvelope, FaGithub, FaLinkedin } from "react-icons/fa";
+import TechStackCard from "@/components/TechStackCard";
 import LogoLoop from '@/components/LogoLoop';
 import { StaticImageData } from "next/image";
 import { 
@@ -60,6 +62,7 @@ const techLogos = [
   { node: <SiGithub />, title: "GitHub", href: "https://github.com" },
 ];
 
+
 export default function Home() {
   return (
     <Layout>
@@ -84,43 +87,40 @@ export default function Home() {
           </h1>
           <p className="text-slate-300 max-w-xl">Turning ideas into clean, functional applications.</p>
           <div className="flex gap-3">
-            <a href="#projects" className="px-4 py-2 rounded-md bg-cyan-500 text-slate-950 text-sm font-medium hover:bg-cyan-400 transition cursor-target">
-              View projects
-            </a>
-            <a href="#contact" className="px-4 py-2 rounded-md border border-slate-700 text-sm hover:border-cyan-400 hover:text-cyan-400 transition cursor-target">
-              Contact me
-            </a>
-            <a href="/CV.pdf" download className="px-4 py-2 rounded-md bg-slate-800 border border-slate-600 text-sm hover:border-cyan-400 hover:text-cyan-400 transition cursor-target">
-              Download CV
-            </a>
-          </div>
+            
+<div className="flex gap-4">
+  <FancyButton href="#projects" className="cursor-target">View Projects</FancyButton>
+  <FancyButton href="#contact" className="cursor-target">Contact Me</FancyButton>
+  <FancyButton href="/CV.pdf" download className="cursor-target">Download CV</FancyButton>
+</div>
+
+</div>
         </div>
-        <div className="flex-1 mt-8 md:mt-0 flex justify-center">
-          <div className="h-40 w-40 rounded-full bg-gradient-to-tr from-cyan-500 to-purple-500 p-[2px]">
-            <div className="h-full w-full rounded-full overflow-hidden bg-slate-950">
-              <Image src={profilePic} alt="Profile picture" className="object-cover h-full w-full" priority />
-            </div>
-          </div>
-        </div>
+        <div className="flex-1 flex justify-center">
+  <div className="h-40 w-40 rounded-full bg-gradient-to-tr from-cyan-500 to-purple-500 p-[2px]">
+    <div className="h-full w-full rounded-full overflow-hidden bg-slate-950">
+      <Image src={profilePic} alt="Profile picture" className="object-cover h-full w-full" priority />
+    </div>
+  </div>
+</div>
+
       </section>
 
       {/* About */}
-      <section id="about" className="space-y-6 py-10">
-        <h2 className="text-2xl font-semibold tracking-tight">About</h2>
-        <p className="text-slate-300 leading-relaxed max-w-2xl">
-          I&apos;m a Full Stack Developer specializing in building clean, functional, and scalable web applications. I enjoy working across both front-end and back-end technologies, crafting intuitive interfaces, efficient APIs, and reliable system architectures.
-        </p>
+      <section id="about" className="space-y-6 py-10"> 
+     <h2 className="text-2xl font-semibold tracking-tight">ABOUT</h2>
+        
+   <AnimatedBlurText
+  text=" I'm a Full Stack Developer specializing in building clean, functional, and scalable web applications. I enjoy working across both front-end and back-end technologies, crafting intuitive interfaces, efficient APIs, and reliable system architectures."
+  className="text-base mb-8 text-slate-300 font-sans"
+/>
 
-        {/* Tech Stack Card */}
-        <div className="border border-slate-800 bg-slate-900/40 rounded-lg p-6 max-w-2xl space-y-4">
-          <h3 className="text-lg font-medium text-slate-200">Tech Stack</h3>
-          <div className="grid grid-cols-1 sm:grid-cols-1 gap-y-3 text-sm text-slate-300">
-            <p><span className="font-medium text-slate-200">Front-end:</span> <span className="text-cyan-300">Next.js</span>, <span className="text-cyan-300">React</span>, <span className="text-cyan-300">TypeScript</span>, <span className="text-cyan-300">Tailwind CSS</span></p>
-            <p><span className="font-medium text-slate-200">Back-end:</span> <span className="text-cyan-300">Python</span>, <span className="text-cyan-300">Django</span></p>
-            <p><span className="font-medium text-slate-200">Database:</span> <span className="text-cyan-300">PostgreSQL</span></p>
-            <p><span className="font-medium text-slate-200">Version Control:</span> <span className="text-cyan-300">Git & GitHub</span></p>
-          </div>
-        </div>
+        {/* Tech Stack Card – Styled Component Version */}
+        <div className="max-w-2xl">
+  <TechStackCard />
+</div>
+
+
 
         {/* Logo Strip */}
         <div className="pt-4">
@@ -130,7 +130,7 @@ export default function Home() {
 
       {/* Projects */}
       <section id="projects" className="space-y-8 py-10">
-        <h2 className="text-2xl font-semibold tracking-tight">Projects</h2>
+     <h2 className="text-2xl font-semibold tracking-tight">PROJECTS</h2>
         <div className="grid md:grid-cols-2 gap-8">
           {projects.map((project) => (
             <article key={project.title} className="group rounded-xl overflow-hidden border border-slate-800 bg-slate-900/40 hover:border-cyan-500/60 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-cyan-500/10 cursor-target">
@@ -159,7 +159,7 @@ export default function Home() {
 
       {/* Contact Section */}
       <section id="contact" className="py-14 space-y-10">
-        <h2 className="text-2xl font-semibold tracking-tight">Contact</h2>
+   <h2 className="text-2xl font-semibold tracking-tight">CONTACT</h2>
 
         <div className="grid md:grid-cols-2 gap-10">
 

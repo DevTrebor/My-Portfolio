@@ -4,6 +4,8 @@ import React, { useState } from "react";
 import Head from "next/head";
 import Image from "next/image";
 import logo from "@/assets/logo1.png";
+import Button from "@/components/animation/NavButton"; // Adjust the path based on your project structure
+
 
 type Props = {
   children: React.ReactNode;
@@ -13,10 +15,12 @@ export default function Layout({ children }: Props) {
   const [isOpen, setIsOpen] = useState(false);
 
   const navLinks = [
-    { name: "About", href: "#about" },
-    { name: "Projects", href: "#projects" },
-    { name: "Contact", href: "#contact" },
-  ];
+  { name: "About", href: "#about", type: "button" },
+  { name: "Projects", href: "#projects", type: "button" },
+  { name: "Contact", href: "#contact", type: "button" },
+  
+];
+
 
   return (
     <>
@@ -32,7 +36,10 @@ export default function Layout({ children }: Props) {
             {/* Replace Name with Image Logo */}
           <div className="flex items-center">
   <button
-    onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+    onClick={() => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      setIsOpen(false); // 👈 closes sidebar if open
+    }}
     className="block cursor-target"
   >
     <Image
@@ -44,16 +51,16 @@ export default function Layout({ children }: Props) {
   </button>
 </div>
 
+
             {/* Desktop Menu */}
-            <ul className="hidden md:flex gap-4 text-sm">
-              {navLinks.map((link) => (
-                <li key={link.name}>
-                  <a href={link.href} className="hover:text-cyan-400 cursor-target">
-                    {link.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
+            <ul className="hidden md:flex gap-4 text-sm items-center">
+  {navLinks.map((link) => (
+    <li key={link.name}>
+      <Button label={link.name} href={link.href} />
+    </li>
+  ))}
+</ul>
+
 
             {/* Hamburger Button */}
             <button
@@ -121,19 +128,19 @@ export default function Layout({ children }: Props) {
               </button>
             </div>
 
-            <ul className="mt-4 flex flex-col gap-2 px-4 text-slate-100">
-              {navLinks.map((link) => (
-                <li key={link.name}>
-                  <a
-                    href={link.href}
-                    className="block px-2 py-2 rounded hover:bg-slate-800 hover:text-cyan-400 transition cursor-target"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    {link.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
+          <ul className="mt-4 flex flex-col gap-4 px-4 text-slate-100">
+  {navLinks.map((link, index) => (
+    <li key={index}>
+      <Button
+        label={link.name}
+        href={link.href}
+        onClick={() => setIsOpen(false)} // close menu on click
+      />
+    </li>
+  ))}
+</ul>
+
+
           </aside>
         </div>
 

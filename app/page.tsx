@@ -1,3 +1,5 @@
+"use client";
+
 import Layout from "@/components/Layout";
 import Image from "next/image";
 import profilePic from "@/assets/profile.jpg";
@@ -7,7 +9,6 @@ import TrueFocus from '@/components/animation/TrueFocus';
 import TargetCursor from '@/components/animation/TargetCursor';
 import ContactForm from "@/components/ContactForm";
 import FancyButton from "@/components/animation/FancyButton";
-import AnimatedBlurText from "@/components/AnimatedBlurText";
 import { FaEnvelope, FaGithub, FaLinkedin } from "react-icons/fa";
 import TechStackCard from "@/components/TechStackCard";
 import LogoLoop from '@/components/LogoLoop';
@@ -109,12 +110,9 @@ export default function Home() {
       {/* About */}
       <section id="about" className="space-y-6 py-10"> 
      <h2 className="text-2xl font-semibold tracking-tight">ABOUT</h2>
-        
-   <AnimatedBlurText
-  text=" I'm a Full Stack Developer specializing in building clean, functional, and scalable web applications. I enjoy working across both front-end and back-end technologies, crafting intuitive interfaces, efficient APIs, and reliable system architectures."
-  className="text-base mb-8 text-slate-300 font-sans"
-/>
-
+        <p className="text-slate-300 max-w-3xl leading-relaxed">  
+          I&apos;m a Full Stack Developer specializing in building clean, functional, and scalable web applications. I enjoy working across both front-end and back-end technologies, crafting intuitive interfaces, efficient APIs, and reliable system architectures.
+          </p>
         {/* Tech Stack Card – Styled Component Version */}
         <div className="max-w-2xl">
   <TechStackCard />

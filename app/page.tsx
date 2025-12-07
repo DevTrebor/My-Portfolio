@@ -1,17 +1,19 @@
-"use client";
-
+// Animation Imports
+import TrueFocus from '@/components/animation/TrueFocus';
+import TargetCursor from '@/components/animation/TargetCursor';
+import FancyButton from "@/components/animation/FancyButton";
+// Component Imports
 import Layout from "@/components/Layout";
-import Image from "next/image";
+import ContactForm from "@/components/ContactForm";
+import TechStackCard from "@/components/TechStackCard";
+import LogoLoop from '@/components/LogoLoop';
+// Asset Imports
 import profilePic from "@/assets/profile.jpg";
 import portfolioImg from "@/assets/portfolio.png";
 import htImg from "@/assets/HT.png";
-import TrueFocus from '@/components/animation/TrueFocus';
-import TargetCursor from '@/components/animation/TargetCursor';
-import ContactForm from "@/components/ContactForm";
-import FancyButton from "@/components/animation/FancyButton";
+// Icon Imports
 import { FaEnvelope, FaGithub, FaLinkedin } from "react-icons/fa";
-import TechStackCard from "@/components/TechStackCard";
-import LogoLoop from '@/components/LogoLoop';
+import Image from "next/image";
 import { StaticImageData } from "next/image";
 import { 
   SiReact, 
